@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>You are Welcome,i'm Aurel Cedric</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>À propos de moi</h2>
+    <p>Je suis actuellement étudiant en troisième année de génie informatique, passionné par le développement et l'innovation technologique. Tout au long de mon parcours, j'ai eu l'opportunité de participer à divers projets, allant de la création de jeux vidéo à des applications web. Cette diversité d'expériences m'a permis de renforcer mes compétences en programmation et en gestion de projets, tout en me donnant une compréhension approfondie des différentes étapes du développement logiciel. 
+        Je suis motivé par le désir d'apprendre continuellement et de relever de nouveaux défis dans le domaine de l'informatique.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projets</h2>
+    <div class="projects-container">
+      <!-- Sidebar with profile image -->
+      <aside class="profile-sidebar">
+        <img src="image/FormaLand72_afa0e9910a46e349f3eabc35d8a2ceb4.jpg" alt="Votre Photo" class="profile-photo">
+        <p>Je suis un développeur passionné, spécialisé dans la création de sites web modernes et réactifs. Mon objectif est de concevoir des expériences en ligne performantes, fonctionnelles et accessibles, tout en cherchant à relever des défis tels que l'optimisation des performances, la compatibilité multi-plateformes et l'intégration de fonctionnalités dynamiques. Toujours en quête d'apprentissage, je vise à offrir des solutions innovantes adaptées aux besoins actuels.</p>
+      </aside>
+  
+      <!-- Project grid -->
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="image/pngegg (49).png" alt="Projet 1" class="project-image">
+          <h3>Développement de Jeux 2D et 3D</h3>
+          <p>Pour ce projet, j'ai collaboré avec des amis pour développer plusieurs jeux en 2D et en 3D. Ce projet nous a permis d'explorer les aspects fondamentaux du développement de jeux vidéo, depuis la conception graphique jusqu’à la programmation de la logique du jeu. Nous avons utilisé des outils comme Unity et Unreal Engine pour créer des environnements immersifs et des mécaniques de jeu engageantes. Cette expérience m'a non seulement permis de renforcer mes compétences en programmation, mais aussi de développer un esprit d'équipe et une capacité à résoudre des problèmes créatifs.
+          </p>
+        </div>
+        <div class="project-card">
+          <img src="image/web.png" alt="Projet 2" class="project-image">
+          <h3>Développement de Sites Web</h3>
+          <p>Dans le cadre de ce projet, j'ai participé à la création de plusieurs sites web en utilisant des technologies telles que HTML, CSS, JavaScript, et des frameworks comme React et Bootstrap. Mon objectif était de concevoir des interfaces utilisateurs modernes et réactives, tout en optimisant la performance et l’accessibilité des sites. Ce projet m’a permis de mieux comprendre les principes du design web, l'organisation du code et l’importance de l'expérience utilisateur (UX). Grâce à cette expérience, j'ai acquis une expertise solide en développement frontend et backend, essentielle pour des projets web professionnels.</p>
+        </div>
+        <div class="project-card">
+          <img src="image/data.png" alt="Projet 3" class="project-image">
+          <h3>Création de Bases de Données et Systèmes d'Automation</h3>
+          <p>Dans ce projet, j'ai travaillé sur la conception et la gestion de bases de données, ainsi que sur le développement de systèmes d'automatisation pour des processus métier. J'ai utilisé SQL Server pour structurer et organiser les données, en m'assurant de leur intégrité et de leur sécurité. Pour la partie automation, j'ai développé des interfaces en utilisant Windows Forms, permettant une interaction utilisateur simplifiée et une meilleure gestion des flux de travail. Ce projet m'a permis d'approfondir mes connaissances en bases de données, ainsi qu'en intégration de solutions automatisées, renforçant ainsi ma capacité à résoudre des problèmes techniques complexes et à améliorer l'efficacité opérationnelle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="skills">
+    <h2>Langages de Programmation</h2>
+    <ul class="language-list">
+        <li><strong>Python</strong> - Niveau avancé</li>
+        <li><strong>JavaScript</strong> - Niveau intermédiaire</li>
+        <li><strong>C++</strong> - Niveau intermédiaire</li>
+        <li><strong>HTML & CSS</strong> - Niveau avancé</li>
+        <li><strong>C#</strong> - Niveau avencé</li> 
+        <li><strong>SQL & PostgreSQL</strong> - Niveau intermédiaire</li>
+    </ul>
+</section>
+
+
+<section id="contact">
+    <h2>Contact moi</h2>
+    <form id="contactForm">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" required>
+        <label for="email">Email :</label>
+        <input type="email" id="email" required>
+        <label for="message">Message :</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<!-- Ajouter EmailJS script -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("email_ruwKa8EqAb0K8m8XIBkNsOce");  // Remplacez "your_user_id" par votre user_id EmailJS
+  })();
+
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();  // Empêche l'envoi normal du formulaire
+    
+    const formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value
+    };
+
+    emailjs.send("service_4vwrgqg", "template_ixrn0mw", formData)  // Remplacez par votre service_id et template_id
+      .then(function(response) {
+        console.log("Message envoyé avec succès : ", response);
+        alert("Message envoyé !");
+      }, function(error) {
+        console.log("Erreur lors de l'envoi : ", error);
+        alert("Erreur lors de l'envoi.");
+      });
+  });
+</script>
+
+
+  <footer>
+    <p>&copy; 2024 AUREL_CEDRIC. Tous droits réservés.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
